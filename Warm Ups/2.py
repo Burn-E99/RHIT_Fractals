@@ -1,0 +1,12 @@
+print("Trig ratio calc")
+from math import *
+xIn = input("Enter a number: ")
+xVal = int(xIn)
+sinX = sin(xVal)
+cosX = cos(xVal)
+print("Sine: ", sinX)
+print("Cosine: ", cosX)
+print("Tangent: ", sinX/cosX)
+print("Cosecant: ", (1/sinX))
+print("Secant: ", (1/cosX))
+print("Cotangent: ", (cosX/sinX))
