@@ -2,8 +2,8 @@ from graphics import *
 from PIL import Image
 from random import random
 
-imgx = 8000
-imgy = 8000
+imgx = 1000
+imgy = 1000
 
 #win = GraphWin("Fern", imgx, imgy)
 #win2 = GraphWin("DO NOT CLOSE", 1, 1)
