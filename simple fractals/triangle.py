@@ -17,21 +17,23 @@ def matrixmult2(m1, m2):
 def midpoint(p1,p2):
     return [((p1[0] + p2[0]) / 2),((p1[1] + p2[1]) / 2)]
 
-redcorner = [600, 600]
-bluecorner = [0, 600]
-greencorner = [300, 600 -(sqrt(3)/2 * 600)]
-corners = [redcorner, bluecorner, greencorner]
+redcorner = [405, 5]
+bluecorner = [25, 281]
+greencorner = [170, 729]
+yellowcorner = [640, 729]
+orangecorner = [785, 281]
+corners = [redcorner, bluecorner, greencorner, yellowcorner, orangecorner]
 
 
 
-randompt = [400, 400]#[randint(200,600), randint(200,600)]
+randompt = [randint(200,600), randint(200,600)]
 ox = randompt[0]
 oy = randompt[1]
     
 a = .5
 b = .5
 t = 0
-th = 0
+th = pi/4
 rot = [cos(th), -sin(th), sin(th), cos(th)]
 sheer = [1, t, 0, 1]
 scal = [a, 0, 0, b]
@@ -55,11 +57,11 @@ for i in range(100000):
     
     
     
-    randcorner = corners[randint(0, 2)]
-    bi = [randcorner[0]/2, randcorner[1]/2]
+    randcorner = corners[randint(0, 4)]
+    bi = [randcorner[0]/4, randcorner[1]/4]
     
     Ti = matrixmult2(a1, xy)
-    Ti1 = [Ti[0] + bi[0], Ti[1] + bi[1]]
+    Ti1 = [Ti[0] + bi[0] + 200, Ti[1] + bi[1]]
     
     point1 = Point(Ti1[0], Ti1[1])
     point1.draw(win)
