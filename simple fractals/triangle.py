@@ -24,8 +24,6 @@ yellowcorner = [640, 729]
 orangecorner = [785, 281]
 corners = [redcorner, bluecorner, greencorner, yellowcorner, orangecorner]
 
-
-
 randompt = [randint(200,600), randint(200,600)]
 ox = randompt[0]
 oy = randompt[1]
@@ -68,13 +66,12 @@ for i in range(100000):
     xy = [Ti1[0], Ti1[1]]
     i += 1
     print(Ti1, randcorner)
-
-        
-    
-
-
-
-
-
-    
-
+win.getMouse()
+win.getMouse()
+win.getMouse()
+win.getMouse()
+win.getMouse()
+win.getMouse()
+win.getMouse()
+win.getMouse()
+win.getMouse()
