@@ -3,7 +3,27 @@ from math import *
 import time
 from random import * 
 
-win = GraphWin("window", 800, 800)
+changexloc = 450
+changeyloc = 450
+
+runtimes = 500000
+
+win = GraphWin("window", 810, 810)
+
+from PIL import Image
+from PIL import ImageColor
+from PIL import ImageDraw
+
+image = Image.new("RGB", (810, 810), color=(255,255,255,0)) # w,h
+draw = ImageDraw.Draw(image)
+
+show = not True
+
+if not show:
+	derp = Point(100,100)
+	noshow = Text(derp, "NO DRAWING")
+	noshow.draw(win)
+
 
 def midpoint(p1, p2):
     return ((p1[0] + p2[0]) /2, (p1[1] + p2[1]) /2)
@@ -22,16 +42,27 @@ bluecorner = [25, 281]
 greencorner = [170, 729]
 yellowcorner = [640, 729]
 orangecorner = [785, 281]
-corners = [redcorner, bluecorner, greencorner, yellowcorner, orangecorner]
+
+redcorner = [5, 805]
+bluecorner = [805,805]
+greencorner = [405, 5]
+
+redcorner = [150, 650]
+bluecorner = [650, 650]
+greencorner = [405, 155]
+
+corners = [redcorner, bluecorner, greencorner]
+
+
 
 randompt = [randint(200,600), randint(200,600)]
 ox = randompt[0]
 oy = randompt[1]
     
-a = .5
-b = .5
+a = -2/3
+b = -2/3
 t = 0
-th = pi/4
+th = 0
 rot = [cos(th), -sin(th), sin(th), cos(th)]
 sheer = [1, t, 0, 1]
 scal = [a, 0, 0, b]
@@ -51,21 +82,25 @@ randt = tlist[randint(0,2)]
 
 
 
-for i in range(100000):
-    
-    
-    
-    randcorner = corners[randint(0, 4)]
-    bi = [randcorner[0]/4, randcorner[1]/4]
+for i in range(runtimes):
+    randcorner = corners[randint(0, (len(corners)-1))]
+    bi = [randcorner[0]/(len(corners)-1), randcorner[1]/(len(corners)-1)]
     
     Ti = matrixmult2(a1, xy)
-    Ti1 = [Ti[0] + bi[0] + 200, Ti[1] + bi[1]]
+    Ti1 = [Ti[0] + bi[0] + changexloc, Ti[1] + bi[1] + changeyloc]
     
     point1 = Point(Ti1[0], Ti1[1])
-    point1.draw(win)
+    if show:
+	    point1.draw(win)
+    draw.point([point1.getX(), point1.getY()], (0,0,0))
     xy = [Ti1[0], Ti1[1]]
     i += 1
     print(Ti1, randcorner)
+    print(i)
+#
+
+image.save("image1" + str(random()) + ".png", "PNG")
+
 win.getMouse()
 win.getMouse()
 win.getMouse()
