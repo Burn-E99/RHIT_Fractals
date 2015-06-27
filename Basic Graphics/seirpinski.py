@@ -10,7 +10,7 @@ s_c = Point(805,805)
 
 runTimes = 10
 ct = 0
-colored = False
+colored = True
 
 def draw_triangle(m_a, m_b, m_c, ct):
 	global runTimes

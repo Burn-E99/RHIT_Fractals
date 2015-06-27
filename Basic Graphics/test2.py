@@ -7,15 +7,21 @@ height = 800
 
 startX = width / 2
 startY = height
+<<<<<<< HEAD
 startL = 300
 runTimes = 5
+=======
+startL = 200
+startLDERP = 400
+runTimes = 15
+>>>>>>> origin/master
 
 win = GraphWin("Tree", width, height)
 win2 = GraphWin("DO NOT CLOSE", 1, 1)
 
 counter = 0
 ratio = 2/3
-angle = -pi/4
+angle = -pi/2
 
 def m_draw(sp, ep, ol, na, counter): # sp=OLD Start pt, ep=OLD End pt, ol=OLD Length, oa=OLD Angle
 	global angle
@@ -49,15 +55,17 @@ def m_draw(sp, ep, ol, na, counter): # sp=OLD Start pt, ep=OLD End pt, ol=OLD Le
 #
 
 o_p1 = Point(startX, startY)
-o_p2 = Point(startX, height - startL)
+o_p2 = Point(startX, height - startLDERP)
 
 m_line = Line(o_p1, o_p2)
 m_line.setFill("brown")
 m_line.setWidth(8)
-m_line.draw(win)
+# m_line.draw(win)
 
 m_draw(o_p1, o_p2, startL, angle, counter)
 m_draw(o_p1, o_p2, startL, 3 * angle, counter)
+m_draw(o_p1, o_p2, startL, - angle, counter)
+m_draw(o_p1, o_p2, startL, -3 * angle, counter)
 
 win2.getMouse()
 win.close()
