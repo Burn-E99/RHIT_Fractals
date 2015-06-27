@@ -8,7 +8,7 @@ height = 800
 startX = width / 2
 startY = height
 startL = 300
-runTimes = 18
+runTimes = 5
 
 win = GraphWin("Tree", width, height)
 win2 = GraphWin("DO NOT CLOSE", 1, 1)
