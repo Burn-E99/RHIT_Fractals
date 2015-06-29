@@ -2,26 +2,26 @@ from graphics import *
 from time import sleep
 from random import random
 
-from PIL import Image
-from PIL import ImageColor
-from PIL import ImageDraw
+#from PIL import Image
+#from PIL import ImageColor
+#from PIL import ImageDraw
 
 qwer_w = 3840
 qwer_h = 2160
-#win = GraphWin("JPark", 800, 800)
-#win2 = GraphWin("DO NOT CLOSE", 1, 1)
+win = GraphWin("JPark", 800, 800)
+win2 = GraphWin("DO NOT CLOSE", 1, 1)
 
-image = Image.new("RGB", (qwer_w, qwer_h))
-draw = ImageDraw.Draw(image)
+#image = Image.new("RGB", (qwer_w, qwer_h))
+#draw = ImageDraw.Draw(image)
 
 counter = 0
 maxCount = 50
 lineLen = 1
 
-startX = qwer_w / 2
-#startX = (2 * lineLen) + 5
-startY = qwer_h / 2
-#startY = 5
+#startX = qwer_w / 2
+startX = 400
+#startY = qwer_h / 2
+startY = 400
 
 stateList = [0] #0 = R, 1 = L
 last_dir = 2 #0 = U, 1 = R, 2 = D, 3 = L
@@ -95,9 +95,9 @@ def draw_line(op, ct, sl, o_dir):
 		#
 		n_line = Line(p_2, p_1)
 		n_line.setFill(cur_color)
-		#n_line.draw(win)
+		n_line.draw(win)
 		
-		draw.line((p_2.getX(), p_2.getY(), p_1.getX(), p_1.getY()), (temp['r'], temp['g'], temp['b']), 1)
+		#draw.line((p_2.getX(), p_2.getY(), p_1.getX(), p_1.getY()), (temp['r'], temp['g'], temp['b']), 1)
 	#
 	
 	n_sl = sl[:]
@@ -113,17 +113,17 @@ def draw_line(op, ct, sl, o_dir):
 	
 	print(n_sl)
 	
-	if ct >= 15:
-		image.save("jPark" + str(ct - 1) + ".png", "PNG")
+	#if ct >= 15:
+		#image.save("jPark" + str(ct - 1) + ".png", "PNG")
 	
 	draw_line(p_2, ct, n_sl, o_dir)
 #
 
-#n_line.draw(win)
+n_line.draw(win)
 
 draw_line(p_2, counter, stateList, last_dir)
 
-image.save("jPark.png", "PNG")
+#image.save("jPark.png", "PNG")
 print("Image Saved")
-#win2.getMouse()
-#win.close()
+win2.getMouse()
+win.close()

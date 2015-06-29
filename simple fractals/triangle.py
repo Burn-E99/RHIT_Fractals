@@ -10,14 +10,14 @@ runtimes = 500000
 
 win = GraphWin("window", 810, 810)
 
-from PIL import Image
-from PIL import ImageColor
-from PIL import ImageDraw
+#from PIL import Image
+#from PIL import ImageColor
+#from PIL import ImageDraw
+#
+#image = Image.new("RGB", (810, 810), color=(255,255,255,0)) # w,h
+#draw = ImageDraw.Draw(image)
 
-image = Image.new("RGB", (810, 810), color=(255,255,255,0)) # w,h
-draw = ImageDraw.Draw(image)
-
-show = not True
+show =  True
 
 if not show:
 	derp = Point(100,100)
@@ -58,18 +58,19 @@ corners = [redcorner, bluecorner, greencorner]
 randompt = [randint(200,600), randint(200,600)]
 ox = randompt[0]
 oy = randompt[1]
-    
+
+#Transformation Array
 a = -2/3
 b = -2/3
 t = 0
 th = 0
+#
 rot = [cos(th), -sin(th), sin(th), cos(th)]
 sheer = [1, t, 0, 1]
 scal = [a, 0, 0, b]
 xy = [ox, oy]
 m1 = matrixmult(rot, scal)
 a1 = matrixmult(m1, sheer)
-
 
 bi1 = (1/2, 0)
 bi2 = (0, 0)
@@ -79,8 +80,6 @@ t2 = [a1, bi2]
 t3 = [a1, bi3]
 tlist = [t1, t2, t3]
 randt = tlist[randint(0,2)]
-
-
 
 for i in range(runtimes):
     randcorner = corners[randint(0, (len(corners)-1))]
@@ -92,14 +91,14 @@ for i in range(runtimes):
     point1 = Point(Ti1[0], Ti1[1])
     if show:
 	    point1.draw(win)
-    draw.point([point1.getX(), point1.getY()], (0,0,0))
+    #draw.point([point1.getX(), point1.getY()], (0,0,0))
     xy = [Ti1[0], Ti1[1]]
     i += 1
     print(Ti1, randcorner)
     print(i)
 #
 
-image.save("image1" + str(random()) + ".png", "PNG")
+#image.save("image1" + str(random()) + ".png", "PNG")
 
 win.getMouse()
 win.getMouse()
